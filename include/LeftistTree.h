@@ -14,7 +14,7 @@ struct Nodo {
 
 };
 
-static Nodo* merge(Nodo* heap, Nodo* nuevoNodo){
+Nodo* merge(Nodo* heap, Nodo* nuevoNodo){
     if(!heap) return nuevoNodo;
     if(!nuevoNodo) return heap;
     
@@ -36,12 +36,12 @@ static Nodo* merge(Nodo* heap, Nodo* nuevoNodo){
 
 }
 
-static Nodo* insertar(Nodo* heap, int dx){
+Nodo* insertar(Nodo* heap, int dx){
     Nodo* nuevoNodo = new Nodo(dx);
     return merge(heap, nuevoNodo);
 }
 
-static Nodo* eliminarMin(Nodo* head){
+Nodo* eliminarMin(Nodo* head){
     if(!head) return nullptr;
 
     Nodo *nuevoNodo = merge(head->izq, head->der);
@@ -49,7 +49,7 @@ static Nodo* eliminarMin(Nodo* head){
     return nuevoNodo;
 }
 
-static void printHeap(Nodo* heap, int padre){
+void printHeap(Nodo* heap, int padre){
     if(!heap) return;
 
     cout<<endl<<"Valor actual: "<<heap->dato;
