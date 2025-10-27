@@ -1,11 +1,28 @@
-/* (Vicente)
 
-- Implementar la extracción del incidente con mayor prioridad.
-- Mostrar los detalles del incidente atendido.
-- Permitir visualizar el incidente más urgente sin eliminarlo.
+#include <iostream>
+#include "../include/LeftistTree.h"
+#include "../include/Incidente.h"   
 
-Métodos sugeridos:
-- void atenderIncidente(LeftistHeap<Incidente>& heap);
-- void verMasUrgente(LeftistHeap<Incidente>& heap);
+using namespace std;
 
-*/
+//Atiende al de mayor prioridad, como es un leftist heap es la raiz (que es la menor)
+Nodo* atenderIncidente(Nodo* root) {
+
+    if (root == nullptr) {
+        cout << "\n>> No hay incidente pendientes." << endl;
+        return nullptr;
+    }
+
+    Incidente incidenteAtendido = root->dato;
+
+    Nodo* hijoIzquierdo = root->izq;
+    Nodo* hijoDerecho = root->der;
+
+    delete root;
+
+    cout << "\n--- INCIDENTE ATENDIDO  ---" << endl;
+    incidenteAtendido.mostrarInfo();
+    cout << "---------------------------------" << endl;
+
+    return merge(hijoIzquierdo, hijoDerecho);
+}
