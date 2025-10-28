@@ -10,14 +10,19 @@ int Incidente::getPrioridad() const { return prioridad; }
 std::string Incidente::getDescripcion() const { return descripcion; }
 std::string Incidente::getUbicacion() const { return ubicacion; }
 
-// Mostrar información
+// Mostrar informacion
 void Incidente::mostrarInfo() const {
     std::cout << "[Prioridad: " << prioridad
-              << ", Descripción: " << descripcion
-              << ", Ubicación: " << ubicacion << "]" << std::endl;
+              << ", Descripcion: " << descripcion
+              << ", Ubicacion: " << ubicacion << "]" << std::endl;
 }
 
 // Sobrecarga de <
 bool Incidente::operator<(const Incidente& other) const {
-    return prioridad < other.prioridad; // menor prioridad = más urgente
+    return prioridad < other.prioridad; // menor prioridad = mas urgente
+}
+
+// Sobrecarga de >
+bool Incidente::operator>(const Incidente& other) const {
+    return prioridad > other.prioridad;
 }

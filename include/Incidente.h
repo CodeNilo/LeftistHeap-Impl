@@ -32,8 +32,9 @@ public:
     // Mostrar información del incidente
     void mostrarInfo() const;
 
-    // Comparación (para heaps de mínimo)
+    // Comparacion (para heaps de minimo)
     bool operator<(const Incidente& other) const;
+    bool operator>(const Incidente& other) const;
 };
 
 #endif // INCIDENTE_H
