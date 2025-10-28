@@ -42,7 +42,7 @@ Nodo* merge(Nodo* heap, Nodo* nuevoNodo){
 
 }
 
-Nodo* insertar(Nodo* heap, int dx){
+Nodo* insertar(Nodo* heap, const Incidente& dx){
     Nodo* nuevoNodo = new Nodo(dx);
     return merge(heap, nuevoNodo);
 }
@@ -55,15 +55,16 @@ Nodo* eliminarMin(Nodo* head){
     return nuevoNodo;
 }
 
-void printHeap(Nodo* heap, int padre){
-    if(!heap) return;
+void printHeap(Nodo* heap, const Incidente& padre) {
+    if (!heap) return;
 
-    cout<<endl<<"Valor actual: "<<heap->dato;
-    cout<<", Padre" << padre;
-    cout<<", NPL: "<<heap->npl;
+    cout << "\nValor actual: " << heap->dato;
+    cout << ", Padre: " << padre;
+    cout << ", NPL: " << heap->npl;
 
-    cout<<endl<<"Hijo Izquierdo: ";
+    cout << "\nHijo Izquierdo:";
     printHeap(heap->izq, heap->dato);
-    cout<<endl<<"Hijo Derecho: ";
+
+    cout << "\nHijo Derecho:";
     printHeap(heap->der, heap->dato);
 }
