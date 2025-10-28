@@ -1,4 +1,4 @@
-#include "../include/LeftistTree.h"
+#include "../include/LeftistHeap.h"
 #include "../include/incidente.h"
 #include <iostream>
 

@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <string>
-#include "../include/LeftistTree.h"
+#include "../include/LeftistHeap.h"
 #include "../include/Incidente.h"
 
 Nodo* atenderIncidente(Nodo* root);

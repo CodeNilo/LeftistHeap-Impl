@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "../include/LeftistTree.h"
+#include "../include/LeftistHeap.h"
 #include "../include/Incidente.h"   
 
 using namespace std;
