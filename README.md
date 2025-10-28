@@ -1,34 +1,37 @@
 # Implementación de Leftist Heap
 
-Sistema de gestión de emergencias implementado con Leftist Heap (Montículo Izquierdista) para optimizar la gestión de prioridades (donde menor valor = mayor prioridad) de los incidentes.
+Implementación de la estructura de datos Leftist Heap (Montículo Izquierdista) con gestión de elementos mediante cola de prioridad (min-heap).
 
 ## Compilación y Ejecución
-```b
-g++ src/Incidente.cpp src/LeftistHeap.cpp src/main.cpp -o main.exe && main.exe
+```bash
+g++ src/Incidente.cpp src/AtencionIncidentes.cpp src/main.cpp -o main.exe && main.exe
 ```
 
-## Funcionalidad 
-El programa debe gestionar incidentes con prioridad, descripción y ubicación, ofreciendo un menú interactivo con las siguientes opciones:
+## Funcionalidad
+El programa ofrece un menú interactivo para gestionar 3 zonas (A, B, C) de Leftist Heaps:
 
-**Insertar nuevos incidentes**: Agrega un incidente al sistema, respetando la propiedad de Leftist Heap.
-
-**Atender el incidente de mayor prioridad**: Extrae y elimina el incidente cuya prioridad sea la menor (raíz del Leftist Heap).
-
-**Fusionar dos zonas de atención**: Realiza la operación de fusión (merge) entre dos Leftist Heaps (ej. los incidentes de dos distritos que se combinan temporalmente).
-
-**Visualizar el incidente más urgente sin eliminarlo**: Consulta el incidente de mayor prioridad (raíz), sin modificar la estructura del heap.
-
-**Salir**: Finaliza el programa.
+- Insertar elementos con prioridad
+- Ver elemento de mayor prioridad (sin eliminar)
+- Extraer elemento de mayor prioridad
+- Fusionar dos zonas (merge)
+- Procesar todos los elementos de una zona
+- Salir
 
 ## Estructura
-**Incidente**: Implementa la estructura de datos que representa un incidente, incluyendo su prioridad (valor entero, llave del heap), descripción y ubicación.
+**Incidente**: Clase que representa elementos con prioridad, descripción y ubicación
 
-**LeftistHeap**: Implementa la estructura de datos del Leftist Heap.
+**LeftistHeap**: Implementa el Leftist Heap con operaciones merge, insertar y eliminarMin
 
-**Propiedad de Heap**: La llave de cada nodo (prioridad) debe ser menor o igual que las llaves de sus hijos (Min-Heap).
+**AtencionIncidentes**: Funciones auxiliares para manipular el heap
 
-**Propiedad de Montículo Izquierdista**: Para cada nodo, la Longitud de Camino Nulo (Null Path Length - NPL) del hijo izquierdo debe ser mayor o igual a la NPL del hijo derecho.
+**Menu**: Interfaz de usuario para interactuar con las zonas
 
-**Operación Clave**: La implementación se centra en la operación de fusión (merge) de dos Leftist Heaps, ya que las operaciones de inserción y eliminación del mínimo se implementan usando merge.
+El Leftist Heap mantiene la propiedad de min-heap y la propiedad izquierdista (NPL del hijo izquierdo ≥ NPL del hijo derecho). Todas las operaciones se basan en la función merge.
 
-**Menu**: Interfaz de usuario para interactuar con el sistema de gestión de emergencias.
+## Complejidad Temporal
+| Operación | Complejidad |
+|-----------|-------------|
+| merge() | O(log n) |
+| insertar() | O(log n) |
+| eliminarMin() | O(log n) |
+| findMin() | O(1) |
