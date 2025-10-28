@@ -1,3 +1,6 @@
+#ifndef LEFTISTHEAP_H
+#define LEFTISTHEAP_H
+
 #include <iostream>
 #include "Incidente.h"
 
@@ -55,16 +58,22 @@ Nodo* eliminarMin(Nodo* head){
     return nuevoNodo;
 }
 
-void printHeap(Nodo* heap, const Incidente& padre) {
+void printHeap(Nodo* heap, const Incidente* padre = nullptr) {
     if (!heap) return;
 
-    cout << "\nValor actual: " << heap->dato;
-    cout << ", Padre: " << padre;
+    cout << "\nValor actual: ";
+    heap->dato.mostrarInfo();
+    if (padre) {
+        cout << ", Padre: ";
+        padre->mostrarInfo();
+    }
     cout << ", NPL: " << heap->npl;
 
     cout << "\nHijo Izquierdo:";
-    printHeap(heap->izq, heap->dato);
+    printHeap(heap->izq, &heap->dato);
 
     cout << "\nHijo Derecho:";
-    printHeap(heap->der, heap->dato);
+    printHeap(heap->der, &heap->dato);
 }
+
+#endif // LEFTISTHEAP_H
