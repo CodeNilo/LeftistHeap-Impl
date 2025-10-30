@@ -1,6 +1,6 @@
 # Implementación de Leftist Heap
 
-Implementación de la estructura de datos Leftist Heap (Montículo Izquierdista) con gestión de elementos mediante cola de prioridad (min-heap).
+Implementación de la estructura de datos Leftist Heap con gestión de elementos mediante cola de prioridad (min-heap).
 
 ## Compilación y Ejecución
 ```bash
